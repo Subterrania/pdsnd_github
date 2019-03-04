@@ -6,6 +6,7 @@ Bikeshare Project
 
 ### Description
 A program to read csv files and analyse the contained data about a bikeshare business.
+This project will fullfil the criteria for part 2 and 3 of a Udacity course.
 
 ### Files used
 Program: bikeshare_2.py
