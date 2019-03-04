@@ -1,15 +1,20 @@
 ### Date created
-Include the date you created this project and README file.
+This repository was uploaded on 3/4/2019.
 
 ### Project Title
-Replace the Project Title
+Bikeshare Project
 
 ### Description
-Describe what your project is about and what it does
+A program to read csv files and analyse the contained data about a bikeshare business.
 
 ### Files used
-Include the files used
+Program: bikeshare_2.py
+gitignored data files:
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+The program largely consists of basic Python, NumPy and Pandas functionalities. It was built on the basic structure provided by Udacity.
+No code pieces or design patterns were taken from third parties.
+Where functions are used they were written by me or were part of the original template.
