@@ -65,12 +65,15 @@ def get_filters():
     """
     def specify_filter(choice_str, choice, list_of_options):
         """
-        Helper function that can be used to go through each filter in turn
+        Helper function that can be used to go through each filter in turn.
 
         Args:
             (str) choice_str - name of the filter as a string to fill print()
             (var) choice - the filter variable that the user has to make a choice about, defaulted to None
             (list) list_of_options - the list the user gets to chose from concerning the filter
+
+        Returns:
+            (str) choice - the choice the user has made from the list of options provided to them.
         """
         print('\nWhich ' + choice_str + ' are you interested in?\n')
         for elem in list_of_options:
@@ -114,7 +117,7 @@ def load_data(city, month, day):
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+        (df) df - Pandas DataFrame containing city data filtered by month and day
     """
 
 
@@ -233,14 +236,14 @@ def user_stats(df):
     print(GREEN + '\nCalculating User Stats...\n', NOC)
     start_time = time.time()
 
-    # Display counts of user types
+    # display counts of user types
     print('Types of users:\n')
     user_types = df['User Type'].value_counts()
     for user_type, amount in user_types.iteritems():
         print(user_type, amount)
     print(YELLOW + '-'*20, NOC)
 
-    # Display counts of gender
+    # display counts of gender
     print('\nGender of users:\n')
     try:
         genders = df['Gender'].fillna('Unknown').value_counts()
@@ -251,7 +254,7 @@ def user_stats(df):
         print('There is no gender data available for your selection.')
         print(YELLOW + '-'*20, NOC)
 
-    # Display earliest, most recent, and most common year of birth
+    # display earliest, most recent, and most common year of birth
     print('\nBirth year of users:\n')
     try:
         oldest_user = int(df['Birth Year'].dropna().min())
@@ -268,6 +271,7 @@ def user_stats(df):
 
 
 def main():
+    #This is the core loop of the program. It activates all other functions in turn.
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
