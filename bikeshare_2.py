@@ -266,6 +266,20 @@ def user_stats(df):
     print(GREY + '\nThis took %s seconds.' % round((time.time() - start_time),2), NOC)
     print('-'*40)
 
+def display_data(df):
+    # Displays the raw data from the dataset to the user in 5 row increments
+    print(YELLOW + 'Would you like to see the raw data?' + NOC + '\n')
+    incrementer = 0
+    df_length = len(df.index)
+    while True:
+        show_data = input('Press "Enter" to see 5 lines of raw data or type' + RED + ' "end" ' + NOC + 'to stop looking at data.\n').lower()
+        if(show_data == 'end'):
+            break
+        incrementer += 5
+        print(df.iloc[incrementer-5:incrementer])
+        if(incrementer - df_length >= 0):
+            print('You have reached the end of the dataset.')
+            break
 
 def main():
     while True:
@@ -275,6 +289,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+        display_data(df)
         print('\nWould you like to restart? Enter' + CYAN + ' yes ' + NOC + 'to restart.\n')
         restart = input('')
         if restart.lower() != 'yes':
